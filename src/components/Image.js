@@ -34,3 +34,12 @@ export const Image = ({img, className}) => {
         </div>
     )
 }
+
+Image.propTypes = {
+    className: PropTypes.string,
+    img: PropTypes.shape({
+        isFavorite: PropTypes.bool,
+        url: PropTypes.string,
+        id: PropTypes.number
+    })
+}
