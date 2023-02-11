@@ -1,9 +1,10 @@
-import React, { useState, useContext } from 'react'
+import React, { useContext } from 'react'
 import { Context } from '../Context'
 import PropTypes from 'prop-types';
+import useHover from '../hooks/useHover';
 
 export const Image = ({img, className}) => {
-    const [hovered, setHovered] = useState(false)
+    const [hovered, mouseRef] = useHover()
     const { toggleIsFavorite, addToCart, cartItems, removeFromCart } = useContext(Context)
 
     function heartIcon() {
@@ -32,8 +33,7 @@ export const Image = ({img, className}) => {
     return (
         <div 
             className={` ${className} image-container`}
-            onMouseEnter={() => setHovered(true)}
-            onMouseLeave={() => setHovered(false)}
+            ref={mouseRef}
         >
             <img src={img.url} className="image-grid"/>
             {heartIcon()}
