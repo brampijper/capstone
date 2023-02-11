@@ -31,7 +31,13 @@ const ContextProvider = ({ children }) => {
     }
 
     return (
-        <Context.Provider value={{allPhotos, cartItems, toggleIsFavorite, addToCart, removeFromCart}}>
+        <Context.Provider value={{
+            allPhotos, 
+            cartItems, 
+            toggleIsFavorite, 
+            addToCart, 
+            removeFromCart
+        }}>
             {children}
         </Context.Provider>
     )
